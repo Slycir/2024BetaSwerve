@@ -46,12 +46,12 @@ public final class Constants {
     public static final double kDiagModuleOffsetMeters = Math.sqrt(Math.pow(kModuleXOffsetMeters, 2) + Math.pow(kModuleYOffsetMeters, 2));
     public static final double kWheelDiameterMeters = 0.10033; // 4 inches - diameter of the wheels
 
-    public static final double kCameraOffsetX = 15 / kInchesToMeters;
-    public static final double kCameraOffsetY = 0;
-    public static final double kCameraOffsetZ = 15 / kInchesToMeters;
+    // public static final double kCameraOffsetX = 15 / kInchesToMeters;
+    // public static final double kCameraOffsetY = 0;
+    // public static final double kCameraOffsetZ = 15 / kInchesToMeters;
 
-    public static final double kHybridNodeDepth = 16 / kInchesToMeters;
-    public static final double kNodeOffset = 20.25 / kInchesToMeters;
+    // public static final double kHybridNodeDepth = 16 / kInchesToMeters;
+    // public static final double kNodeOffset = 20.25 / kInchesToMeters;
 
     public static final double kFieldX = 649 / kInchesToMeters;
     public static final double kFieldY = 319 / kInchesToMeters;
@@ -61,20 +61,20 @@ public final class Constants {
      public static final double kFrontRightEncoderOffset = 264.79;// 269.12  10
     public static final double kBackRightEncoderOffset = 22.06;// 27.8       9 
 
-    public static final double kShoulderEncoderOffset = 348.9; // FIND THIS
-    public static final double kElbowEncoderOffset = -45.95; // FIND THIS
+    // public static final double kShoulderEncoderOffset = 348.9; // FIND THIS
+    // public static final double kElbowEncoderOffset = -45.95; // FIND THIS
     
-    public static final double kShoulderLength = 42;
-    public static final double kElbowLength = 34;
+    // public static final double kShoulderLength = 42;
+    // public static final double kElbowLength = 34;
 
-    public static final double kShoulderLengthSquared = kShoulderLength * kShoulderLength;
-    public static final double kElbowLengthSquared = kElbowLength * kElbowLength;
+    // public static final double kShoulderLengthSquared = kShoulderLength * kShoulderLength;
+    // public static final double kElbowLengthSquared = kElbowLength * kElbowLength;
 
-    public static final double kShoulderMaxSpeed = 0.25;
-    public static final double kElbowMaxSpeed = 0.5; 
+    // public static final double kShoulderMaxSpeed = 0.25;
+    // public static final double kElbowMaxSpeed = 0.5; 
 
-    public static final double kMaxReach = 56; //inches
-    public static final double kMaxHeight = 54;
+    // public static final double kMaxReach = 56; //inches
+    // public static final double kMaxHeight = 54;
 
     public static final double kMaxSpeedMetersPerSecond = 5880 / 60.0 *
       SwerveModuleConstants.kDriveReduction *
@@ -84,11 +84,11 @@ public final class Constants {
       Math.hypot(kModuleXOffsetMeters / 2.0, kModuleYOffsetMeters / 2.0);
   }
   
-  public static final class BalancingConstants {
-    public static final double kAngleTolerance = 10.0; //degrees
-    public static final double kTriggerMultiplier = 0.2; 
-    public static final double kSpeedLimit = 0.45; 
-  }
+  // public static final class BalancingConstants {
+  //   public static final double kAngleTolerance = 10.0; //degrees
+  //   public static final double kTriggerMultiplier = 0.2; 
+  //   public static final double kSpeedLimit = 0.45; 
+  // }
 
   public static final class SwerveModuleConstants {
     public static final double kSpeedMultiplier = 1; // limits robot speed
@@ -134,48 +134,48 @@ public final class Constants {
     
   }
 
-  public static final class ArmConstants {
-    public static final double kShoulderMaxAngle = 45; //degrees
-    public static final double kElbowMaxAngle = 130; //degrees
+  // public static final class ArmConstants {
+  //   public static final double kShoulderMaxAngle = 45; //degrees
+  //   public static final double kElbowMaxAngle = 130; //degrees
 
-    public static final class PID {
-      public static final double kShoulderP = 0.016;
-      public static final double kShoulderI = 0.016;
-      public static final double kShoulderD = 0.00001;
+  //   public static final class PID {
+  //     public static final double kShoulderP = 0.016;
+  //     public static final double kShoulderI = 0.016;
+  //     public static final double kShoulderD = 0.00001;
 
-      public static final double kElbowP = 0.014;
-      public static final double kElbowI = 0.0015;
-      public static final double kElbowD = 0.000;// 0.0005 had oscillations
-    }
-  }
+  //     public static final double kElbowP = 0.014;
+  //     public static final double kElbowI = 0.0015;
+  //     public static final double kElbowD = 0.000;// 0.0005 had oscillations
+  //   }
+  // }
 
 
   public static final class CANConstants {
-    public static final int kFrontLeftDriveMotorID = 3;
-    public static final int kBackLeftDriveMotorID = 2;
-    public static final int kFrontRightDriveMotorID = 4;
-    public static final int kBackRightDriveMotorID = 1;
+    public static final int kFrontLeftDriveMotorID = 1;
+    public static final int kBackLeftDriveMotorID = 4;
+    public static final int kFrontRightDriveMotorID = 2;
+    public static final int kBackRightDriveMotorID = 3;
 
-    public static final int kFrontLeftSteerMotorID = 7;
-    public static final int kBackLeftSteerMotorID = 6;
-    public static final int kFrontRightSteerMotorID = 8;
-    public static final int kBackRightSteerMotorID = 5;
+    public static final int kFrontLeftSteerMotorID = 5;
+    public static final int kBackLeftSteerMotorID = 8;
+    public static final int kFrontRightSteerMotorID = 6;
+    public static final int kBackRightSteerMotorID = 7;
 
-    public static final int kFrontLeftEncoderID = 11; //9
-    public static final int kBackLeftEncoderID = 12;// 12
-    public static final int kFrontRightEncoderID = 10;// 11
-    public static final int kBackRightEncoderID = 9;// 10
+    public static final int kFrontLeftEncoderID = 9;
+    public static final int kBackLeftEncoderID = 12;
+    public static final int kFrontRightEncoderID = 10;
+    public static final int kBackRightEncoderID = 11;
 
-    public static final int kElbowEncoderID = 14;
-    public static final int kShoulderEncoderID = 13;
+    // public static final int kElbowEncoderID = 14;
+    // public static final int kShoulderEncoderID = 13;
 
-    public static final int kLeftShoulderMotorID = 17;
-    public static final int kRightShoulderMotorID = 18;
-    public static final int kLeftElbowMotorID = 19;
-    public static final int kRightElbowMotorID = 20;
+    // public static final int kLeftShoulderMotorID = 17;
+    // public static final int kRightShoulderMotorID = 18;
+    // public static final int kLeftElbowMotorID = 19;
+    // public static final int kRightElbowMotorID = 20;
 
-    public static final int kLeftCollectorMotorID = 16;
-    public static final int kRightCollectorMotorID = 15;
+    // public static final int kLeftCollectorMotorID = 16;
+    // public static final int kRightCollectorMotorID = 15;
 
 
     public static final double kEncoderResolution = 4096;
