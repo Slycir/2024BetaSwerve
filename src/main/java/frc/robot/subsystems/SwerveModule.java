@@ -97,7 +97,7 @@ public class SwerveModule extends SubsystemBase {
   }
 
   private void setMotorSettings(CANSparkMax motor, int currentLimit) { // sets the settings of the motor(s)
-    motor.restoreFactoryDefaults(); // restores factory default settings in case something was changed
+    // motor.restoreFactoryDefaults(); // restores factory default settings in case something was changed
     motor.setPeriodicFramePeriod(CANSparkMaxLowLevel.PeriodicFrame.kStatus0, 45); // sets update rate of motor faults, applied output, and is follower value to 45 ms
     motor.setPeriodicFramePeriod(CANSparkMaxLowLevel.PeriodicFrame.kStatus1, 20); // sets update rate of motor velocity, current, temperature, and voltage to 20ms
     motor.setPeriodicFramePeriod(CANSparkMaxLowLevel.PeriodicFrame.kStatus2, 20); // sets update rate of motor position to every 20 ms
