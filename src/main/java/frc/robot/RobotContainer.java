@@ -4,9 +4,14 @@
 
 package frc.robot;
 
+import static frc.robot.Constants.OIConstants.*;
+
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+// import frc.robot.commands.DEBUG_OutputAbsoluteEncoderReadings;
+import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.subsystems.Drivetrain;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -16,10 +21,32 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
 
+  Drivetrain m_drivetrain = new Drivetrain();
+
+  // DEBUG_OutputAbsoluteEncoderReadings DEBUG_OutputAbsoluteEncoderReadings = new DEBUG_OutputAbsoluteEncoderReadings(drivetrain);
+
+  private final CommandXboxController m_driverController =
+      new CommandXboxController(kDriverControllerPort);
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+
+    m_drivetrain.setDefaultCommand(
+      new DriveWithJoysticks(
+        m_drivetrain, 
+        () -> m_driverController.getLeftX(), 
+        () -> m_driverController.getLeftY(), 
+        () -> m_driverController.getRightX(), 
+        () -> m_driverController.getRightTriggerAxis(), 
+        m_driverController.povUp(),
+        m_driverController.b(),
+        m_driverController.leftBumper(),
+        m_driverController.rightBumper()
+        )
+    );
+
   }
 
   /**

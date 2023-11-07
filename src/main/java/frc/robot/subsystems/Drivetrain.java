@@ -29,10 +29,10 @@ public class Drivetrain extends SubsystemBase {
   private SwerveModule m_backRight;
 
   private SwerveDriveKinematics m_kinematics = new SwerveDriveKinematics(
-    new Translation2d(kModuleXOffsetMeters, kModuleYOffsetMeters),
     new Translation2d(kModuleXOffsetMeters, -kModuleYOffsetMeters),
-    new Translation2d(-kModuleXOffsetMeters, kModuleYOffsetMeters),
-    new Translation2d(-kModuleXOffsetMeters, -kModuleYOffsetMeters));
+    new Translation2d(kModuleXOffsetMeters, kModuleYOffsetMeters),
+    new Translation2d(-kModuleXOffsetMeters, -kModuleYOffsetMeters),
+    new Translation2d(-kModuleXOffsetMeters, kModuleYOffsetMeters));
   
   private SwerveDrivePoseEstimator m_odometer;
   private AHRS m_navX = new AHRS();
@@ -188,4 +188,10 @@ public class Drivetrain extends SubsystemBase {
     m_backRight.setDesiredStateClosed(states[3]);
   }
 
+  public void DEBUG_OutputAbsoluteEncoderReadings() {
+    System.out.println("FL" + m_frontLeft.getAbsoluteAngle());
+    System.out.println("FR" + m_frontRight.getAbsoluteAngle());
+    System.out.println("BL" + m_backLeft.getAbsoluteAngle());
+    System.out.println("BR" + m_backRight.getAbsoluteAngle());
+  }
 }

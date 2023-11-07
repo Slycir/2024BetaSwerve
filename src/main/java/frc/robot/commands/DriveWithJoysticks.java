@@ -36,7 +36,7 @@ public class DriveWithJoysticks extends Command {
   boolean leftWasPressed = false;
   boolean rightWasPressed = false;
 
-  private PIDController turnController = new PIDController(0.3, kTurnI, kTurnD);
+  private PIDController turnController = new PIDController(.01, kTurnI, 0.002);
   
   double m_toAngle;
   double m_xSpeed;
@@ -47,9 +47,9 @@ public class DriveWithJoysticks extends Command {
   boolean m_holdAngle = false;
 
 
-  private final SlewRateLimiter m_xLimiter = new SlewRateLimiter(/*1 / kAccelerationSeconds*/50);
-  private final SlewRateLimiter m_yLimiter = new SlewRateLimiter(/*1 / kAccelerationSeconds*/50);
-  private final SlewRateLimiter m_thetaLimiter = new SlewRateLimiter(/*1 / kAccelerationSeconds*/50);
+  private final SlewRateLimiter m_xLimiter = new SlewRateLimiter(1 / kAccelerationSeconds);
+  private final SlewRateLimiter m_yLimiter = new SlewRateLimiter(1 / kAccelerationSeconds);
+  private final SlewRateLimiter m_thetaLimiter = new SlewRateLimiter(50);
   /** Creates a new Drive. */
   public DriveWithJoysticks(
       Drivetrain drivetrain, DoubleSupplier x, DoubleSupplier y, DoubleSupplier theta, DoubleSupplier precision, Trigger faceForwards, Trigger isfieldRelative, Trigger rollLeft, Trigger rollRight) {
@@ -85,12 +85,12 @@ public class DriveWithJoysticks extends Command {
     if (m_faceForwards.getAsBoolean()) {
       m_PIDcontrol = true;
       m_toAngle = 0;
-    } else if (m_holdAngle) {
-      if(MathUtil.applyDeadband(m_theta.getAsDouble(), kDriveDeadband) == 0.0) {
-        m_PIDcontrol = true;
-      } else {
-        m_PIDcontrol = false;
-      }
+    //} else if (m_holdAngle) {
+      // if(MathUtil.applyDeadband(m_theta.getAsDouble(), kDriveDeadband) == 0.0) {
+        // m_PIDcontrol = true;
+      // } else {
+        // m_PIDcontrol = false;
+      // }
     } else {
       m_PIDcontrol = false;
     }
@@ -114,12 +114,12 @@ public class DriveWithJoysticks extends Command {
       m_thetaSpeed =
         -m_thetaLimiter.calculate(MathUtil.applyDeadband(Math.pow(m_theta.getAsDouble(), 2) * Math.signum(m_theta.getAsDouble()), kDriveDeadband))
         * kMaxAngularSpeedRadiansPerSecond * kSpeedMultiplier * kRotationSpeedMultiplier * m_precisionFactor;
-      if(m_thetaSpeed == 0.0) {
-        m_toAngle = m_drivetrain.getOdometryYaw();
-        m_holdAngle = true;
-      } else {
-        m_holdAngle = false;
-      }
+      // if(m_thetaSpeed == 0.0) {
+        // m_toAngle = m_drivetrain.getOdometryYaw();
+        // m_holdAngle = true;
+      // } else {
+        // m_holdAngle = false;
+      // }
     }
 
     // if (leftRoll.getAsBoolean()) {

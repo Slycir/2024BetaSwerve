@@ -41,8 +41,8 @@ public final class Constants {
   public static final class MeasurementConstants {
     // This is based on the CAD model (divided by two to represent distance from center of robot) 
     public static final double kInchesToMeters = 39.37;
-    public static final double kModuleXOffsetMeters = 21.5 / kInchesToMeters / 2; // 21.5 inches - distance between left and right wheels
-    public static final double kModuleYOffsetMeters = 18.5 / kInchesToMeters / 2; // 18.5 inches - distance between front and back wheels
+    public static final double kModuleXOffsetMeters = 24.75 / kInchesToMeters / 2; // 21.5 inches - distance between left and right wheels
+    public static final double kModuleYOffsetMeters = 24.75 / kInchesToMeters / 2; // 18.5 inches - distance between front and back wheels
     public static final double kDiagModuleOffsetMeters = Math.sqrt(Math.pow(kModuleXOffsetMeters, 2) + Math.pow(kModuleYOffsetMeters, 2));
     public static final double kWheelDiameterMeters = 0.10033; // 4 inches - diameter of the wheels
 
@@ -56,10 +56,10 @@ public final class Constants {
     public static final double kFieldX = 649 / kInchesToMeters;
     public static final double kFieldY = 319 / kInchesToMeters;
 
-    public static final double kFrontLeftEncoderOffset = 88.77;//86.1     11
-    public static final double kBackLeftEncoderOffset = 177.13;//179          12
-     public static final double kFrontRightEncoderOffset = 264.79;// 269.12  10
-    public static final double kBackRightEncoderOffset = 22.06;// 27.8       9 
+    public static final double kFrontLeftEncoderOffset = 323.17;//86.1     11
+    public static final double kBackLeftEncoderOffset = 260.33;//179          12
+     public static final double kFrontRightEncoderOffset = 149.24;// 269.12  10
+    public static final double kBackRightEncoderOffset = 271.85;// 27.8       9 
 
     // public static final double kShoulderEncoderOffset = 348.9; // FIND THIS
     // public static final double kElbowEncoderOffset = -45.95; // FIND THIS
@@ -96,7 +96,7 @@ public final class Constants {
     public static final double kDriveDeadband = 0.05;
 
     public static final double kMaxVoltage = 12.0;
-    public static final double kAccelerationSeconds = 0.5; // 0.5 seconds to reach full speed
+    public static final double kAccelerationSeconds = 0.15; // 0.5 seconds to reach full speed
 
     public static final int kDriveMotorCurrentLimit = 40;
     public static final int kSteerMotorCurrentLimit = 20;
@@ -152,19 +152,19 @@ public final class Constants {
 
   public static final class CANConstants {
     public static final int kFrontLeftDriveMotorID = 1;
-    public static final int kBackLeftDriveMotorID = 4;
+    public static final int kBackLeftDriveMotorID = 3;
     public static final int kFrontRightDriveMotorID = 2;
-    public static final int kBackRightDriveMotorID = 3;
+    public static final int kBackRightDriveMotorID = 4;
 
     public static final int kFrontLeftSteerMotorID = 5;
-    public static final int kBackLeftSteerMotorID = 8;
+    public static final int kBackLeftSteerMotorID = 7;
     public static final int kFrontRightSteerMotorID = 6;
-    public static final int kBackRightSteerMotorID = 7;
+    public static final int kBackRightSteerMotorID = 8;
 
     public static final int kFrontLeftEncoderID = 9;
-    public static final int kBackLeftEncoderID = 12;
+    public static final int kBackLeftEncoderID = 11;
     public static final int kFrontRightEncoderID = 10;
-    public static final int kBackRightEncoderID = 11;
+    public static final int kBackRightEncoderID = 12;
 
     // public static final int kElbowEncoderID = 14;
     // public static final int kShoulderEncoderID = 13;
